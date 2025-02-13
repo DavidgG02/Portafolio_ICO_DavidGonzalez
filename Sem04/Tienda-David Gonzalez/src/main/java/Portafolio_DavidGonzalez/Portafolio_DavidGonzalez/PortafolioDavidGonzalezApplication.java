@@ -1,13 +1,13 @@
-package Portafolio_SebastianMendez.Portafolio_SebastianMendez;
+package Portafolio_DavidGonzalez.Portafolio_DavidGonzalez;
 
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 
 @SpringBootApplication
-public class PortafolioSebastianMendezApplication {
+public class PortafolioDavidGonzalezApplication {
 
 	public static void main(String[] args) {
-		SpringApplication.run(PortafolioSebastianMendezApplication.class, args);
+		SpringApplication.run(PortafolioDavidGonzalezApplication.class, args);
 	}
 
 }
