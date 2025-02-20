@@ -1,4 +1,4 @@
-package Portafolio_DavidGonzalez.Portafolio_DavidGonzalez;
+package Portafolio.Portafolio.tests;
 
 import org.junit.jupiter.api.Test;
 import org.springframework.boot.test.context.SpringBootTest;
