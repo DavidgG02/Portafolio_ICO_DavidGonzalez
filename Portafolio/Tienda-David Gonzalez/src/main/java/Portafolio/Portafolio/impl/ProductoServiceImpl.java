@@ -60,5 +60,10 @@ public class ProductoServiceImpl implements ProductoService {
         return productoDao.metodoNativo(precioInf, precioSup);
     }
 
+    @Override
+    public List<Producto> findByCategoriaIdAndPrecioBetweenOrderByExistencias(Long categoriaId, double precioInf, double precioSup) {
+        return productoDao.findByCategoriaIdAndPrecioBetweenOrderByExistencias(categoriaId, precioInf, precioSup);
+    }
+
 }
 

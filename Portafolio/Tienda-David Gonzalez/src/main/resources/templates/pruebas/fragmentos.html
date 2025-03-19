@@ -21,7 +21,7 @@
             </div>
         </section>
 
-         <!-- 2 Sección principal para mostrar la informaccion de la entidad producto -->
+        <!-- 2 Sección principal para mostrar la informaccion de la entidad producto -->
         <section th:fragment="listadoProductos" id="productos">
             <div class="row row-cols-4">
                 <div class="card" th:each="p : ${productos}">
@@ -123,9 +123,79 @@
                         </div>
                     </form>
                 </div>
-            </div>
-        </section> 
+                Ahora veo el archivo HTML actual que manejas para tu proyecto. Basado en esto, deberías agregar un nuevo formulario en la sección de filtros para tu nueva consulta ampliada que filtrada por categoría y rango de precios.
+                Aquí te muestro cómo modificar la sección de filtros para incluir tu nueva consulta ampliada:
+                htmlCopiar<!-- 3 Sección para crear los filtros -->
+                <section th:fragment="filtros" class="bg-light">
+                    <div class="row py-2">
+                        <div class="col-md-1"></div>
+                        <!-- Formulario existente para Consultas Ampliadas -->
+                        <div class="col-md-3">
+                            <form method="POST" th:action="@{/pruebas/query1}" 
+                                  class="was-validated">
+                                <div class="card">                            
+                                    <div class="card-body">
+                                        <div class="mb-3">
+                                            <label for="precioInf">[[#{pruebas.precio.inferior}]]</label>
+                                            <input type="number" class="form-control" 
+                                                   th:value="${precioInf}"
+                                                   th:name="precioInf" required="true"/>
+                                        </div>
+                                        <div class="mb-3">
+                                            <label for="precioSup">[[#{pruebas.precio.superior}]]</label>
+                                            <input type="number" class="form-control" 
+                                                   th:value="${precioSup}"
+                                                   th:name="precioSup" required="true"/>
+                                        </div>
+                                    </div>
+                                    <div class="card-footer text-center">
+                                        <button type="submit" class="btn btn-primary">
+                                            <i class="fas fa-check"></i> [[#{pruebas.ampliadas}]]
+                                        </button>
+                                    </div>
+                                </div>
+                            </form>
+                        </div>
+
+                        <!-- NUEVO FORMULARIO PARA LA NUEVA CONSULTA AMPLIADA -->
+                        <div class="col-md-3">
+                            <form method="POST" th:action="@{/pruebas/queryCategoriaPrecio}" 
+                                  class="was-validated">
+                                <div class="card">                            
+                                    <div class="card-body">
+                                        <div class="mb-3">
+                                            <label for="categoriaId">Categoría</label>
+                                            <select id="categoriaId" name="categoriaId" class="form-select" required>
+                                                <option value="">Seleccione una categoría</option>
+                                                <option th:each="cat : ${categorias}" 
+                                                        th:value="${cat.idCategoria}" 
+                                                        th:text="${cat.descripcion}"></option>
+                                            </select>
+                                        </div>
+                                        <div class="mb-3">
+                                            <label for="precioInf">[[#{pruebas.precio.inferior}]]</label>
+                                            <input type="number" class="form-control" 
+                                                   th:value="${precioInf}"
+                                                   th:name="precioInf" required="true"/>
+                                        </div>
+                                        <div class="mb-3">
+                                            <label for="precioSup">[[#{pruebas.precio.superior}]]</label>
+                                            <input type="number" class="form-control" 
+                                                   th:value="${precioSup}"
+                                                   th:name="precioSup" required="true"/>
+                                        </div>
+                                    </div>
+                                    <div class="card-footer text-center">
+                                        <button type="submit" class="btn btn-success">
+                                            <i class="fas fa-check"></i> Consulta por Categoría
+                                        </button>
+                                    </div>
+                                </div>
+                            </form>
+                        </div>
+                    </div>
+                </section> 
 
 
-    </body>
-</html>
+                </body>
+                </html>
