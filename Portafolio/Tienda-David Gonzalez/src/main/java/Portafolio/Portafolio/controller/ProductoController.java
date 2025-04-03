@@ -17,29 +17,25 @@ import org.springframework.web.multipart.MultipartFile;
 @Controller
 @RequestMapping("/producto")
 public class ProductoController {
-  
+    
     @Autowired
     private ProductoService productoService;
     @Autowired
     private CategoriaService categoriaService;
     
+    
     @GetMapping("/listado")
-    private String listado(Model model) {
-        var productos = productoService.getProductos(false);
-        model.addAttribute("productos", productos);
+    public String listado(Model model) {
+        var lista=productoService.getProductos(false);        
+        model.addAttribute("productos", lista);
+        model.addAttribute("totalProductos", lista.size());
         
-        var categorias = categoriaService.getCategorias(false);
+        var categorias=categoriaService.getCategorias(true);
         model.addAttribute("categorias", categorias);
         
-        model.addAttribute("totalProductos",productos.size());
         return "/producto/listado";
     }
     
-     @GetMapping("/nuevo")
-    public String productoNuevo(Producto producto) {
-        return "/producto/modifica";
-    }
-
     @Autowired
     private FirebaseStorageServiceImpl firebaseStorageService;
     
@@ -69,9 +65,10 @@ public class ProductoController {
         producto = productoService.getProducto(producto);
         model.addAttribute("producto", producto);
         
-        var categorias = categoriaService.getCategorias(false);
+        var categorias=categoriaService.getCategorias(true);
         model.addAttribute("categorias", categorias);
         
         return "/producto/modifica";
-    }   
+    }
+    
 }
