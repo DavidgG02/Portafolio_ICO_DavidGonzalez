@@ -30,7 +30,7 @@ public class ProjectConfig implements WebMvcConfigurer {
         slr.setLocaleAttributeName("session.current.locale");
         slr.setTimeZoneAttributeName("session.current.timezone");
         return slr;
-    }
+        }
 
     /* localeChangeInterceptor se utiliza para crear un interceptor de cambio de idioma*/
     @Bean
