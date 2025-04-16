@@ -8,7 +8,7 @@ import lombok.Data;
 @Entity
 @Table(name="ruta_permit")
 public class RutaPermit implements Serializable {    
-    private static final long serialVersionUID = 1l;    
+    private static final long serialVersionUID = 1L;    
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name="id_ruta")

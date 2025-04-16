@@ -4,7 +4,7 @@ package Portafolio.Portafolio.controller;
 import Portafolio.Portafolio.domain.Producto;
 import Portafolio.Portafolio.service.CategoriaService;
 import Portafolio.Portafolio.service.ProductoService;
-import Portafolio.Portafolio.impl.FirebaseStorageServiceImpl;
+import Portafolio.Portafolio.service.impl.FirebaseStorageServiceImpl;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
